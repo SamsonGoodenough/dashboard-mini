@@ -13,19 +13,21 @@ unhandled();
 debug();
 contextMenu();
 
+// https://stackoverflow.com/questions/39421074/setting-focus-to-a-windows-application-from-node-js
+
 // Note: Must match `build.appId` in package.json
-app.setAppUserModelId('com.company.AppName');
+app.setAppUserModelId('com.gg.DashboardMini');
 
 // Uncomment this before publishing your first version.
 // It's commented out as it throws an error if there are no published versions.
-// if (!is.development) {
-// 	const FOUR_HOURS = 1000 * 60 * 60 * 4;
-// 	setInterval(() => {
-// 		autoUpdater.checkForUpdates();
-// 	}, FOUR_HOURS);
-//
-// 	autoUpdater.checkForUpdates();
-// }
+if (!is.development) {
+	const FOUR_HOURS = 1000 * 60 * 60 * 4;
+	setInterval(() => {
+		autoUpdater.checkForUpdates();
+	}, FOUR_HOURS);
+
+	autoUpdater.checkForUpdates();
+}
 
 // Prevent window from being garbage collected
 let mainWindow;
@@ -33,9 +35,11 @@ let mainWindow;
 const createMainWindow = async () => {
 	const win = new BrowserWindow({
 		title: app.name,
+		icon: __dirname + '/build/icon.png',
 		show: false,
-		width: 600,
-		height: 400
+		frame: true,
+		width: 1200,
+		height: 800
 	});
 
 	win.on('ready-to-show', () => {
@@ -82,9 +86,13 @@ app.on('activate', async () => {
 
 (async () => {
 	await app.whenReady();
-	Menu.setApplicationMenu(menu);
+	// Menu.setApplicationMenu(menu);
+	Menu.setApplicationMenu(null); // set null to remove the menu
 	mainWindow = await createMainWindow();
 
 	const favoriteAnimal = config.get('favoriteAnimal');
-	mainWindow.webContents.executeJavaScript(`document.querySelector('header p').textContent = 'My favorite animal is ${favoriteAnimal}'`);
+	mainWindow.webContents.executeJavaScript(`document.querySelector('header p').textContent = 'Launch your favourite apps, all from one place.'`);
+
+	var cp = require("child_process");
+	cp.exec("open discord");
 })();

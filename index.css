@@ -39,3 +39,27 @@ header h1 {
 	padding: 0;
 	opacity: 0.7;
 }
+
+p {
+	color: #4D4D4D;
+}
+
+.app {
+	/* background-color: #f4511e; */
+	width: 20%;
+	border-radius: 16px;
+  border: none;
+	outline: none;
+  color: white;
+  padding: 16px 16px;
+  text-align: center;
+  font-size: 16px;
+  margin: 3px 3px;
+  opacity: 0.6;
+  transition: 0.3s;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.app:hover {opacity: 1}
