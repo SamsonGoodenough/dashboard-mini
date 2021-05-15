@@ -1,7 +1,7 @@
 {
 	"name": "dashboard-mini",
 	"productName": "Dashboard Mini",
-	"version": "0.0.2",
+	"version": "0.1.0",
 	"description": "Lightweight app for your favorite programs to live",
 	"license": "MIT",
 	"repository": "SamsonGoodenough/dashboard-mini",
@@ -39,10 +39,18 @@
 			"browser"
 		],
 		"rules": {
-			"capitalized-comments": ["off"],
-			"node/no-path-concat": ["off"],
-			"quotes": ["off"],
-			"no-var": ["off"]
+			"capitalized-comments": [
+				"off"
+			],
+			"node/no-path-concat": [
+				"off"
+			],
+			"quotes": [
+				"off"
+			],
+			"no-var": [
+				"off"
+			]
 		}
 	},
 	"np": {
