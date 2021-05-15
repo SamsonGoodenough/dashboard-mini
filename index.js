@@ -1,13 +1,13 @@
 'use strict';
 const path = require('path');
 const {app, BrowserWindow, Menu} = require('electron');
-/// const {autoUpdater} = require('electron-updater');
+const {autoUpdater} = require('electron-updater');
 const {is} = require('electron-util');
 const unhandled = require('electron-unhandled');
 const debug = require('electron-debug');
 const contextMenu = require('electron-context-menu');
-const config = require('./config.js');
-const menu = require('./menu.js');
+// const config = require('./config.js');
+// const menu = require('./menu.js');
 
 unhandled();
 debug();
@@ -35,7 +35,7 @@ let mainWindow;
 const createMainWindow = async () => {
 	const win = new BrowserWindow({
 		title: app.name,
-		icon: __dirname + '/build/icon.png',
+		icon: `${__dirname}/build/icon.png`,
 		show: false,
 		frame: true,
 		width: 1200,
@@ -90,7 +90,7 @@ app.on('activate', async () => {
 	Menu.setApplicationMenu(null); // set null to remove the menu
 	mainWindow = await createMainWindow();
 
-	const favoriteAnimal = config.get('favoriteAnimal');
+	// const favoriteAnimal = config.get('favoriteAnimal');
 	mainWindow.webContents.executeJavaScript(`document.querySelector('header p').textContent = 'Launch your favourite apps, all from one place.'`);
 
 	var cp = require("child_process");

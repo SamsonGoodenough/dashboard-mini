@@ -37,7 +37,13 @@
 		"envs": [
 			"node",
 			"browser"
-		]
+		],
+		"rules": {
+			"capitalized-comments": ["off"],
+			"node/no-path-concat": ["off"],
+			"quotes": ["off"],
+			"no-var": ["off"]
+		}
 	},
 	"np": {
 		"publish": false,
